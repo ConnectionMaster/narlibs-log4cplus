@@ -32,7 +32,7 @@ Simply add the dependency to your Maven NAR like so :
 ```xml
 <dependency>
   <groupId>com.github.cern.narlibs</groupId>
-  <artifactId>log4cplus</arifactId>
+  <artifactId>log4cplus</artifactId>
   <version>2.0.1</version>
   <type>nar</type>
 </dependency>
