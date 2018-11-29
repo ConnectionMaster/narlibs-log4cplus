@@ -43,14 +43,26 @@ pipeline {
 		}
 		
 		stage('Package') { 
-			agent { label "unix" }
-			steps {
-				script {
-					withMaven(maven: 'Maven-3.2.x', mavenSettingsConfig: 'c2monSettingsConfig') {
-				    		sh 'mvn package'
+			parallel {
+				stage('Windows') {                  
+					agent { label "windows" }
+					steps {
+						withMaven(maven: 'Maven-3.2.x', mavenSettingsConfig: 'c2monSettingsConfig') {
+							  bat 'mvn package'
+						  }
 					}
-				}						
-			}					
+				}
+				stage('Unix') {          
+				    agent { label "unix" }
+				    steps {
+					script {
+						  withMaven(maven: 'Maven-3.2.x', mavenSettingsConfig: 'c2monSettingsConfig') {
+							  sh 'mvn package'
+						  }
+					       }						
+				    }
+				}
+				 
 		}
 		
 		//stage('Deploy') { 
