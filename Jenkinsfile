@@ -48,10 +48,10 @@ pipeline {
 					agent { label "windows" }
 					steps {
 						withMaven(maven: 'Maven-3.2.x', mavenSettingsConfig: 'c2monSettingsConfig') {
-							  bat """
+							  bat '''
 							    "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\vcvarsall.bat" amd64
 							    mvn package
-							  """
+							  '''
 						  }
 					}
 				}
