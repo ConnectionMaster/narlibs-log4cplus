@@ -136,6 +136,14 @@
                 </repository>
             </distributionManagement>  
         </profile>
+	  
+	<profile>
+            <id>cern-jenkins</id>
+            <distributionManagement>
+                <snapshotRepository><id>snapshots</id></snapshotRepository>
+                <repository><id>releases</id></repository>
+            </distributionManagement>  
+        </profile>  
     </profiles>
 
   
