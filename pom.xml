@@ -138,7 +138,12 @@
         </profile>
 	  
 	<profile>
-            <id>cern</id>
+            <id>cern-jenkins</id>
+	    <activation>
+		<property>
+                  <name>env.JENKINS_URL</name>
+                </property>
+	    </activation>
             <distributionManagement>
                 <snapshotRepository><id>snapshots</id></snapshotRepository>
                 <repository><id>releases</id></repository>
