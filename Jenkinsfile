@@ -70,7 +70,7 @@ pipeline {
                 stage('Windows') {                  
                     agent { label "windows" }
                     steps {
-                        withMaven(maven: 'Maven-3.2.x', mavenSettingsConfig: 'CERN-EN-ICE') {
+                        withMaven(jdk: 'Java 11 (Windows)', maven: 'Maven-3.2.x', mavenSettingsConfig: 'CERN-EN-ICE') {
                                 bat '''
                                     call "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\vcvarsall.bat" amd64
                                     mvn deploy
