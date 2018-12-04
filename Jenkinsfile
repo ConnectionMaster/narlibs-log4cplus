@@ -73,7 +73,7 @@ pipeline {
                         withMaven(jdk: 'Java 11 (Windows)', maven: 'Maven-3.2.x', mavenSettingsConfig: 'CERN-EN-ICE') {
                                 bat '''
                                     call "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\vcvarsall.bat" amd64
-                                    mvn deploy
+                                    mvn help:effective-pom deploy
                                 '''
                         }
                      }
@@ -82,7 +82,7 @@ pipeline {
                      agent { label "unix" }
                      steps {
                         withMaven(maven: 'Maven-3.2.x', mavenSettingsConfig: 'CERN-EN-ICE') {
-                                sh 'mvn deploy'
+                                sh 'mvn help:effective-pom deploy'
                         }
                      }
                 }
