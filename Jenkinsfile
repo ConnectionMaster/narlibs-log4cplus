@@ -77,6 +77,7 @@ pipeline {
                                 '''
                         }
                      }
+                }
                 stage('Unix') {     
                      agent { label "unix" }
                      steps {
@@ -85,7 +86,7 @@ pipeline {
                         }
                      }
                 }
-            }
+           
           }
       }
    }
