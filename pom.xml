@@ -138,7 +138,7 @@
         </profile>
 	  
 	<profile>
-            <id>cern-jenkins</id>
+            <id>cern</id>
             <distributionManagement>
                 <snapshotRepository><id>snapshots</id></snapshotRepository>
                 <repository><id>releases</id></repository>
