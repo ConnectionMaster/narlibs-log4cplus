@@ -145,8 +145,14 @@
                 </property>
 	    </activation>
             <distributionManagement>
-                <snapshotRepository><id>snapshots</id></snapshotRepository>
-                <repository><id>releases</id></repository>
+                <snapshotRepository>
+			<id>snapshots</id>
+			<url>https://repository.cern.ch/nexus/content/repositories/enice-snapshots</url>
+		</snapshotRepository>
+                <repository>
+			<id>releases</id>
+			<url>https://repository.cern.ch/nexus/content/repositories/enice-releases/</url>
+		</repository>
             </distributionManagement>  
         </profile>  
     </profiles>
