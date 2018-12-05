@@ -27,6 +27,7 @@ pipeline {
                     steps {
                         pom = readMavenPom file: 'pom.xml'
                         copyArtifacts filter: 'msvc14/x64/bin.Release/*.*', fingerprintArtifacts: true, flatten: true, optional: true, projectName: 'log4cplus/log4cplus/2.0.x', selector: lastSuccessful(), target: 'src/nar/resources/aol/amd64-Windows-msvc/lib'
+                        bat 'copy src\nar\resources\aol\amd64-Windows-msvc\lib\liblog4cplus.dll       src\nar\resources\aol\amd64-Windows-msvc\lib\liblog4cplus-nar-${pom.version}.dll'
                     }
                 }
                 stage('Unix') {            
