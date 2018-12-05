@@ -38,7 +38,7 @@ pipeline {
                         copyArtifacts filter: '.libs/liblog4cplus-*.so', fingerprintArtifacts: true, flatten: true, optional: true, projectName: 'log4cplus/log4cplus/2.0.x', selector: lastSuccessful(), target: 'src/nar/resources/aol/amd64-Linux-gpp/lib/'
                         fileOperations([
                              fileCopyOperation(includes: 'src/nar/resources/aol/amd64-Linux-gpp/lib/liblog4cplus-2.0.so', targetLocation: 'src/nar/resources/aol/amd64-Linux-gpp/lib/liblog4cplus-nar-${pom.version}.so')
-                             fileMoveOperation(includes: 'src/nar/resources/aol/amd64-Linux-gpp/lib/liblog4cplus-2.0.so', targetLocation: 'src/nar/resources/aol/amd64-Linux-gpp/lib/liblog4cplus.so')
+                            ,fileMoveOperation(includes: 'src/nar/resources/aol/amd64-Linux-gpp/lib/liblog4cplus-2.0.so', targetLocation: 'src/nar/resources/aol/amd64-Linux-gpp/lib/liblog4cplus.so')
                         ])
                         //sh 'cp src/nar/resources/aol/amd64-Linux-gpp/lib/liblog4cplus-2.0.so       src/nar/resources/aol/amd64-Linux-gpp/lib/liblog4cplus-nar-${pom.version}.so'
                        // sh 'mv src/nar/resources/aol/amd64-Linux-gpp/lib/liblog4cplus-2.0.so       src/nar/resources/aol/amd64-Linux-gpp/lib/liblog4cplus.so'                        
