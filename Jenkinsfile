@@ -25,16 +25,18 @@ pipeline {
                 stage('Windows') {                  
                     agent { label "windows" }
                     steps {
+                        pom = readMavenPom file: 'pom.xml'
                         copyArtifacts filter: 'msvc14/x64/bin.Release/*.*', fingerprintArtifacts: true, flatten: true, optional: true, projectName: 'log4cplus/log4cplus/2.0.x', selector: lastSuccessful(), target: 'src/nar/resources/aol/amd64-Windows-msvc/lib'
                     }
                 }
                 stage('Unix') {            
                     agent { label "unix" }
                     steps {
+                        pom = readMavenPom file: 'pom.xml'
                         copyArtifacts filter: 'include/log4cplus/**/*.*', fingerprintArtifacts: true, flatten: true, optional: true, projectName: 'log4cplus/log4cplus/2.0.x', selector: lastSuccessful(), target: 'src/nar/resources/noarch/'
-                        copyArtifacts filter: '.libs/liblog4cplus-2.0.so', fingerprintArtifacts: true, flatten: true, optional: true, projectName: 'log4cplus/log4cplus/2.0.x', selector: lastSuccessful(), target: 'src/nar/resources/aol/amd64-Linux-gpp/lib/'
-                        sh 'mv src/nar/resources/aol/amd64-Linux-gpp/lib/liblog4cplus-2.0.so src/nar/resources/aol/amd64-Linux-gpp/lib/liblog4cplus-nar-2.0.0.so'
-                        sh 'cp src/nar/resources/aol/amd64-Linux-gpp/lib/liblog4cplus-nar-2.0.0.so src/nar/resources/aol/amd64-Linux-gpp/lib/liblog4cplus.so'                        
+                        copyArtifacts filter: '.libs/liblog4cplus-*.so', fingerprintArtifacts: true, flatten: true, optional: true, projectName: 'log4cplus/log4cplus/2.0.x', selector: lastSuccessful(), target: 'src/nar/resources/aol/amd64-Linux-gpp/lib/'
+                        sh 'cp src/nar/resources/aol/amd64-Linux-gpp/lib/liblog4cplus-2.0.so       src/nar/resources/aol/amd64-Linux-gpp/lib/liblog4cplus-nar-${pom.version}.so'
+                        sh 'mv src/nar/resources/aol/amd64-Linux-gpp/lib/liblog4cplus-2.0.so       src/nar/resources/aol/amd64-Linux-gpp/lib/liblog4cplus.so'                        
                     }                    
                 }
             }
