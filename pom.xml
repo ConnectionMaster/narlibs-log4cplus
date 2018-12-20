@@ -147,11 +147,11 @@
             <distributionManagement>
                 <snapshotRepository>
 			<id>snapshots</id>
-			<!--url>https://repository.cern.ch/nexus/content/repositories/enice-snapshots</url-->
+			<url>https://test-repomgr.web.cern.ch/repository/nexus2-be-ics-snapshots</url>
 		</snapshotRepository>
                 <repository>
 			<id>releases</id>
-			<!--url>https://repository.cern.ch/nexus/content/repositories/enice-releases/</url-->
+			<url>https://test-repomgr.web.cern.ch/repository/nexus2-be-ics-releases</url>
 		</repository>
             </distributionManagement>  
         </profile>  
