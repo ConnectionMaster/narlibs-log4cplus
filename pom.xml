@@ -144,14 +144,14 @@
                   <name>env.JENKINS_URL</name>
                 </property>
 	    </activation>
-            <distributionManagement>
+             <distributionManagement>
                 <snapshotRepository>
 			<id>snapshots</id>
-			<url>https://test-repomgr.web.cern.ch/repository/be-ics-snapshots</url>
+			<url>https://repository.cern.ch/nexus/content/repositories/enice-snapshots</url>
 		</snapshotRepository>
                 <repository>
 			<id>releases</id>
-			<url>https://test-repomgr.web.cern.ch/repository/be-ics-releases</url>
+			<url>https://repository.cern.ch/nexus/content/repositories/enice-releases/</url>
 		</repository>
             </distributionManagement>  
         </profile>  
